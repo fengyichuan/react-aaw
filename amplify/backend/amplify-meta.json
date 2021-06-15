@@ -1,0 +1,42 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-reactaaw-aaw-152958-authRole",
+      "UnauthRoleArn": "arn:aws:iam::791872045580:role/amplify-reactaaw-aaw-152958-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::791872045580:role/amplify-reactaaw-aaw-152958-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-reactaaw-aaw-152958-deployment",
+      "UnauthRoleName": "amplify-reactaaw-aaw-152958-unauthRole",
+      "StackName": "amplify-reactaaw-aaw-152958",
+      "StackId": "arn:aws:cloudformation:us-west-2:791872045580:stack/amplify-reactaaw-aaw-152958/8c4c1900-cdee-11eb-aca4-020eb4c750c9",
+      "AmplifyAppId": "d371nfz6wl92sv"
+    }
+  },
+  "api": {
+    "reactaaw": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7,
+              "description": ""
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "2rceqyqvmfb4doy4jmrdrnt6nm",
+        "GraphQLAPIEndpointOutput": "https://aly6rqj7mzcsbfkuk55ymmhddu.appsync-api.us-west-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-ejcm5qjjurahdpcvybsebt5rcq"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-reactaaw-aaw-152958-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apireactaaw"
+      },
+      "lastPushTimeStamp": "2021-06-15T15:45:30.175Z",
+      "lastPushDirHash": "J7kM+4Iim+UD4olL1dOi7pAq3H0="
+    }
+  }
+}

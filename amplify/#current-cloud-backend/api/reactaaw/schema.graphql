@@ -1,0 +1,8 @@
+type Menu @model {
+  id: ID!
+  name: String!
+  price: Float!
+  customization: String!
+  status: String
+}
+

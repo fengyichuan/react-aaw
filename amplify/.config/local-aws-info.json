@@ -1,0 +1,12 @@
+{
+  "dev": {
+    "configLevel": "project",
+    "useProfile": false,
+    "awsConfigFilePath": "/home/yichuaf/.amplify/awscloudformation/K2R3hHlPJX"
+  },
+  "aaw": {
+    "configLevel": "project",
+    "useProfile": true,
+    "profileName": "default"
+  }
+}
