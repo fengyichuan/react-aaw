@@ -34,9 +34,9 @@ export const listMenuss = /* GraphQL */ `
     }
   }
 `;
-export const getOrders = /* GraphQL */ `
-  query GetOrders($id: ID!) {
-    getOrders(id: $id) {
+export const getOrder = /* GraphQL */ `
+  query GetOrder($id: ID!) {
+    getOrder(id: $id) {
       id
       menuId
       price
@@ -48,13 +48,13 @@ export const getOrders = /* GraphQL */ `
     }
   }
 `;
-export const listOrderss = /* GraphQL */ `
-  query ListOrderss(
-    $filter: ModelOrdersFilterInput
+export const listOrders = /* GraphQL */ `
+  query ListOrders(
+    $filter: ModelOrderFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listOrderss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listOrders(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         menuId

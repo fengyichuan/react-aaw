@@ -138,6 +138,68 @@
           },
           "isDeprecated" : false,
           "deprecationReason" : null
+        }, {
+          "name" : "getOrder",
+          "description" : null,
+          "args" : [ {
+            "name" : "id",
+            "description" : null,
+            "type" : {
+              "kind" : "NON_NULL",
+              "name" : null,
+              "ofType" : {
+                "kind" : "SCALAR",
+                "name" : "ID",
+                "ofType" : null
+              }
+            },
+            "defaultValue" : null
+          } ],
+          "type" : {
+            "kind" : "OBJECT",
+            "name" : "Order",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "listOrders",
+          "description" : null,
+          "args" : [ {
+            "name" : "filter",
+            "description" : null,
+            "type" : {
+              "kind" : "INPUT_OBJECT",
+              "name" : "ModelOrderFilterInput",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          }, {
+            "name" : "limit",
+            "description" : null,
+            "type" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          }, {
+            "name" : "nextToken",
+            "description" : null,
+            "type" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          } ],
+          "type" : {
+            "kind" : "OBJECT",
+            "name" : "ModelOrderConnection",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
         } ],
         "inputFields" : null,
         "interfaces" : [ ],
@@ -922,7 +984,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "Orders",
+        "name" : "Order",
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -1047,7 +1109,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelOrdersConnection",
+        "name" : "ModelOrderConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
@@ -1058,7 +1120,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "OBJECT",
-              "name" : "Orders",
+              "name" : "Order",
               "ofType" : null
             }
           },
@@ -1082,7 +1144,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelOrdersFilterInput",
+        "name" : "ModelOrderFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1147,7 +1209,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelOrdersFilterInput",
+              "name" : "ModelOrderFilterInput",
               "ofType" : null
             }
           },
@@ -1160,7 +1222,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelOrdersFilterInput",
+              "name" : "ModelOrderFilterInput",
               "ofType" : null
             }
           },
@@ -1170,7 +1232,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelOrdersFilterInput",
+            "name" : "ModelOrderFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -1183,7 +1245,7 @@
         "name" : "Mutation",
         "description" : null,
         "fields" : [ {
-          "name" : "createMenus",
+          "name" : "createMenu",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -1193,7 +1255,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateMenusInput",
+                "name" : "CreateMenuInput",
                 "ofType" : null
               }
             },
@@ -1203,20 +1265,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelMenusConditionInput",
+              "name" : "ModelMenuConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Menus",
+            "name" : "Menu",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateMenus",
+          "name" : "updateMenu",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -1226,7 +1288,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateMenusInput",
+                "name" : "UpdateMenuInput",
                 "ofType" : null
               }
             },
@@ -1236,20 +1298,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelMenusConditionInput",
+              "name" : "ModelMenuConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Menus",
+            "name" : "Menu",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteMenus",
+          "name" : "deleteMenu",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -1259,7 +1321,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteMenusInput",
+                "name" : "DeleteMenuInput",
                 "ofType" : null
               }
             },
@@ -1269,20 +1331,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelMenusConditionInput",
+              "name" : "ModelMenuConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Menus",
+            "name" : "Menu",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createOrders",
+          "name" : "createOrder",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -1292,7 +1354,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateOrdersInput",
+                "name" : "CreateOrderInput",
                 "ofType" : null
               }
             },
@@ -1302,20 +1364,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelOrdersConditionInput",
+              "name" : "ModelOrderConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Orders",
+            "name" : "Order",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateOrders",
+          "name" : "updateOrder",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -1325,7 +1387,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateOrdersInput",
+                "name" : "UpdateOrderInput",
                 "ofType" : null
               }
             },
@@ -1335,20 +1397,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelOrdersConditionInput",
+              "name" : "ModelOrderConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Orders",
+            "name" : "Order",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteOrders",
+          "name" : "deleteOrder",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -1358,7 +1420,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteOrdersInput",
+                "name" : "DeleteOrderInput",
                 "ofType" : null
               }
             },
@@ -1368,14 +1430,14 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelOrdersConditionInput",
+              "name" : "ModelOrderConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "Orders",
+            "name" : "Order",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -1387,7 +1449,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateMenusInput",
+        "name" : "CreateMenuInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1453,7 +1515,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelMenusConditionInput",
+        "name" : "ModelMenuConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1500,7 +1562,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelMenusConditionInput",
+              "name" : "ModelMenuConditionInput",
               "ofType" : null
             }
           },
@@ -1513,7 +1575,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelMenusConditionInput",
+              "name" : "ModelMenuConditionInput",
               "ofType" : null
             }
           },
@@ -1523,7 +1585,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelMenusConditionInput",
+            "name" : "ModelMenuConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -1533,7 +1595,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateMenusInput",
+        "name" : "UpdateMenuInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1591,7 +1653,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteMenusInput",
+        "name" : "DeleteMenuInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1613,7 +1675,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateOrdersInput",
+        "name" : "CreateOrderInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1692,7 +1754,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelOrdersConditionInput",
+        "name" : "ModelOrderConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1748,7 +1810,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelOrdersConditionInput",
+              "name" : "ModelOrderConditionInput",
               "ofType" : null
             }
           },
@@ -1761,7 +1823,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelOrdersConditionInput",
+              "name" : "ModelOrderConditionInput",
               "ofType" : null
             }
           },
@@ -1771,7 +1833,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelOrdersConditionInput",
+            "name" : "ModelOrderConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -1781,7 +1843,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateOrdersInput",
+        "name" : "UpdateOrderInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1848,7 +1910,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteOrdersInput",
+        "name" : "DeleteOrderInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1905,6 +1967,58 @@
           },
           "isDeprecated" : false,
           "deprecationReason" : null
+        }, {
+          "name" : "onCreateOrder",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "OBJECT",
+            "name" : "Order",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "onUpdateOrder",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "OBJECT",
+            "name" : "Order",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "onDeleteOrder",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "OBJECT",
+            "name" : "Order",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        } ],
+        "inputFields" : null,
+        "interfaces" : [ ],
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "ModelBooleanInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "ne",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Boolean",
+            "ofType" : null
+          },
+          "defaultValue" : null
         }, {
           "name" : "onCreateOrders",
           "description" : null,
@@ -2055,51 +2169,6 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         } ],
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "ModelBooleanInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "ne",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "eq",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "attributeExists",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "attributeType",
-          "description" : null,
-          "type" : {
-            "kind" : "ENUM",
-            "name" : "ModelAttributeTypes",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
@@ -2939,6 +3008,23 @@
         "description" : "Tells the service this field/object has access authorized by a Lambda Authorizer.",
         "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
         "args" : [ ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
+        "name" : "deprecated",
+        "description" : null,
+        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
+        "args" : [ {
+          "name" : "reason",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : "\"No longer supported\""
+        } ],
         "onOperation" : false,
         "onFragment" : false,
         "onField" : false

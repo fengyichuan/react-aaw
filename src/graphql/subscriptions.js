@@ -40,9 +40,9 @@ export const onDeleteMenus = /* GraphQL */ `
     }
   }
 `;
-export const onCreateOrders = /* GraphQL */ `
-  subscription OnCreateOrders {
-    onCreateOrders {
+export const onCreateOrder = /* GraphQL */ `
+  subscription OnCreateOrder {
+    onCreateOrder {
       id
       menuId
       price
@@ -54,9 +54,9 @@ export const onCreateOrders = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateOrders = /* GraphQL */ `
-  subscription OnUpdateOrders {
-    onUpdateOrders {
+export const onUpdateOrder = /* GraphQL */ `
+  subscription OnUpdateOrder {
+    onUpdateOrder {
       id
       menuId
       price
@@ -68,9 +68,9 @@ export const onUpdateOrders = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteOrders = /* GraphQL */ `
-  subscription OnDeleteOrders {
-    onDeleteOrders {
+export const onDeleteOrder = /* GraphQL */ `
+  subscription OnDeleteOrder {
+    onDeleteOrder {
       id
       menuId
       price

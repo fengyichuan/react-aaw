@@ -49,12 +49,12 @@ export const deleteMenus = /* GraphQL */ `
     }
   }
 `;
-export const createOrders = /* GraphQL */ `
-  mutation CreateOrders(
-    $input: CreateOrdersInput!
-    $condition: ModelOrdersConditionInput
+export const createOrder = /* GraphQL */ `
+  mutation CreateOrder(
+    $input: CreateOrderInput!
+    $condition: ModelOrderConditionInput
   ) {
-    createOrders(input: $input, condition: $condition) {
+    createOrder(input: $input, condition: $condition) {
       id
       menuId
       price
@@ -66,12 +66,12 @@ export const createOrders = /* GraphQL */ `
     }
   }
 `;
-export const updateOrders = /* GraphQL */ `
-  mutation UpdateOrders(
-    $input: UpdateOrdersInput!
-    $condition: ModelOrdersConditionInput
+export const updateOrder = /* GraphQL */ `
+  mutation UpdateOrder(
+    $input: UpdateOrderInput!
+    $condition: ModelOrderConditionInput
   ) {
-    updateOrders(input: $input, condition: $condition) {
+    updateOrder(input: $input, condition: $condition) {
       id
       menuId
       price
@@ -83,12 +83,12 @@ export const updateOrders = /* GraphQL */ `
     }
   }
 `;
-export const deleteOrders = /* GraphQL */ `
-  mutation DeleteOrders(
-    $input: DeleteOrdersInput!
-    $condition: ModelOrdersConditionInput
+export const deleteOrder = /* GraphQL */ `
+  mutation DeleteOrder(
+    $input: DeleteOrderInput!
+    $condition: ModelOrderConditionInput
   ) {
-    deleteOrders(input: $input, condition: $condition) {
+    deleteOrder(input: $input, condition: $condition) {
       id
       menuId
       price

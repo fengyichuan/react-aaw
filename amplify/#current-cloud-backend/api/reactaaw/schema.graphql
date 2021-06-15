@@ -6,7 +6,7 @@ type Menus @model {
   status: String
 }
 
-type Orders @model {
+type Order @model {
     id: ID!
     menuId: String!
     price: Float!
