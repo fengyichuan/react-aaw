@@ -7,10 +7,6 @@ import React, { Component } from 'react';
 
 const initialState = {}
 
-function componentDidMount() {
-    console.log('hello')
-}
-
 async function fetchMenus() {
     try {
         const menu = await API.graphql(graphqlOperation(listMenus))

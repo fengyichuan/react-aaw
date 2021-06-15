@@ -1,8 +1,17 @@
-type Menu @model {
+type Menus @model {
   id: ID!
   name: String!
   price: Float!
   customization: String!
   status: String
+}
+
+type Orders @model {
+    id: ID!
+    menuId: String!
+    price: Float!
+    customization: String!
+    orderedTime: String!
+    status: String
 }
 
