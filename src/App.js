@@ -1,14 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import Amplify, {API, graphqlOperation} from 'aws-amplify';
+import {listMenus} from './graphql/queries';
 
 import React, { Component } from 'react';
 
-const element = <h1>Hello World Yichuan 123</h1>
+const initialState = {}
+
+function componentDidMount() {
+    console.log('hello')
+}
+
+async function fetchMenus() {
+    try {
+        const menu = await API.graphql(graphqlOperation(listMenus))
+        console.log(menu);
+    } catch (err) {
+        console.log('error fetching menus')
+    }
+}
 
 function App() {
   return (
     <div className="App">
-        {element}
+        Hello
     </div>
   );
 }
