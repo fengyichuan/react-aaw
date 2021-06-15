@@ -1,9 +1,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getMenus = /* GraphQL */ `
-  query GetMenus($id: ID!) {
-    getMenus(id: $id) {
+export const getMenu = /* GraphQL */ `
+  query GetMenu($id: ID!) {
+    getMenu(id: $id) {
       id
       name
       price
@@ -14,13 +14,13 @@ export const getMenus = /* GraphQL */ `
     }
   }
 `;
-export const listMenuss = /* GraphQL */ `
-  query ListMenuss(
-    $filter: ModelMenusFilterInput
+export const listMenus = /* GraphQL */ `
+  query ListMenus(
+    $filter: ModelMenuFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listMenuss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listMenus(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name

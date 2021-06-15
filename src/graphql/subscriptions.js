@@ -1,9 +1,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateMenus = /* GraphQL */ `
-  subscription OnCreateMenus {
-    onCreateMenus {
+export const onCreateMenu = /* GraphQL */ `
+  subscription OnCreateMenu {
+    onCreateMenu {
       id
       name
       price
@@ -14,9 +14,9 @@ export const onCreateMenus = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateMenus = /* GraphQL */ `
-  subscription OnUpdateMenus {
-    onUpdateMenus {
+export const onUpdateMenu = /* GraphQL */ `
+  subscription OnUpdateMenu {
+    onUpdateMenu {
       id
       name
       price
@@ -27,9 +27,9 @@ export const onUpdateMenus = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteMenus = /* GraphQL */ `
-  subscription OnDeleteMenus {
-    onDeleteMenus {
+export const onDeleteMenu = /* GraphQL */ `
+  subscription OnDeleteMenu {
+    onDeleteMenu {
       id
       name
       price

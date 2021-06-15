@@ -1,12 +1,12 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createMenus = /* GraphQL */ `
-  mutation CreateMenus(
-    $input: CreateMenusInput!
-    $condition: ModelMenusConditionInput
+export const createMenu = /* GraphQL */ `
+  mutation CreateMenu(
+    $input: CreateMenuInput!
+    $condition: ModelMenuConditionInput
   ) {
-    createMenus(input: $input, condition: $condition) {
+    createMenu(input: $input, condition: $condition) {
       id
       name
       price
@@ -17,12 +17,12 @@ export const createMenus = /* GraphQL */ `
     }
   }
 `;
-export const updateMenus = /* GraphQL */ `
-  mutation UpdateMenus(
-    $input: UpdateMenusInput!
-    $condition: ModelMenusConditionInput
+export const updateMenu = /* GraphQL */ `
+  mutation UpdateMenu(
+    $input: UpdateMenuInput!
+    $condition: ModelMenuConditionInput
   ) {
-    updateMenus(input: $input, condition: $condition) {
+    updateMenu(input: $input, condition: $condition) {
       id
       name
       price
@@ -33,12 +33,12 @@ export const updateMenus = /* GraphQL */ `
     }
   }
 `;
-export const deleteMenus = /* GraphQL */ `
-  mutation DeleteMenus(
-    $input: DeleteMenusInput!
-    $condition: ModelMenusConditionInput
+export const deleteMenu = /* GraphQL */ `
+  mutation DeleteMenu(
+    $input: DeleteMenuInput!
+    $condition: ModelMenuConditionInput
   ) {
-    deleteMenus(input: $input, condition: $condition) {
+    deleteMenu(input: $input, condition: $condition) {
       id
       name
       price

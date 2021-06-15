@@ -1,4 +1,4 @@
-type Menus @model {
+type Menu @model {
   id: ID!
   name: String!
   price: Float!
