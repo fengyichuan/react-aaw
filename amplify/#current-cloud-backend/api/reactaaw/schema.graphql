@@ -1,17 +1,31 @@
 type Menu @model {
   id: ID!
   name: String!
-  price: Float!
-  customization: String!
-  status: String
+  alternativeNames: [String]
+  basePrice: Float!
+  customization: [Customization]
 }
 
 type Order @model {
     id: ID!
-    menuId: String!
+    items: [MenuItem!]
     price: Float!
-    customization: String!
     orderedTime: String!
-    status: String
+    status: OrderStatus
 }
 
+type MenuItem {
+    menuId: String!
+    customization: [Customization]
+}
+
+type Customization {
+    category: String!
+    name: String!
+    price: Float!
+}
+
+enum OrderStatus {
+    IN_PROGRESS,
+    COMPLETED
+}

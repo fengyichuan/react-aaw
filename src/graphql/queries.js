@@ -6,9 +6,13 @@ export const getMenu = /* GraphQL */ `
     getMenu(id: $id) {
       id
       name
-      price
-      customization
-      status
+      alternativeNames
+      basePrice
+      customization {
+        category
+        name
+        price
+      }
       createdAt
       updatedAt
     }
@@ -24,9 +28,13 @@ export const listMenus = /* GraphQL */ `
       items {
         id
         name
-        price
-        customization
-        status
+        alternativeNames
+        basePrice
+        customization {
+          category
+          name
+          price
+        }
         createdAt
         updatedAt
       }
@@ -38,9 +46,15 @@ export const getOrder = /* GraphQL */ `
   query GetOrder($id: ID!) {
     getOrder(id: $id) {
       id
-      menuId
+      items {
+        menuId
+        customization {
+          category
+          name
+          price
+        }
+      }
       price
-      customization
       orderedTime
       status
       createdAt
@@ -57,9 +71,10 @@ export const listOrders = /* GraphQL */ `
     listOrders(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        menuId
+        items {
+          menuId
+        }
         price
-        customization
         orderedTime
         status
         createdAt

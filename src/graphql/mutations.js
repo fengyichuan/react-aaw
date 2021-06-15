@@ -9,9 +9,13 @@ export const createMenu = /* GraphQL */ `
     createMenu(input: $input, condition: $condition) {
       id
       name
-      price
-      customization
-      status
+      alternativeNames
+      basePrice
+      customization {
+        category
+        name
+        price
+      }
       createdAt
       updatedAt
     }
@@ -25,9 +29,13 @@ export const updateMenu = /* GraphQL */ `
     updateMenu(input: $input, condition: $condition) {
       id
       name
-      price
-      customization
-      status
+      alternativeNames
+      basePrice
+      customization {
+        category
+        name
+        price
+      }
       createdAt
       updatedAt
     }
@@ -41,9 +49,13 @@ export const deleteMenu = /* GraphQL */ `
     deleteMenu(input: $input, condition: $condition) {
       id
       name
-      price
-      customization
-      status
+      alternativeNames
+      basePrice
+      customization {
+        category
+        name
+        price
+      }
       createdAt
       updatedAt
     }
@@ -56,9 +68,15 @@ export const createOrder = /* GraphQL */ `
   ) {
     createOrder(input: $input, condition: $condition) {
       id
-      menuId
+      items {
+        menuId
+        customization {
+          category
+          name
+          price
+        }
+      }
       price
-      customization
       orderedTime
       status
       createdAt
@@ -73,9 +91,15 @@ export const updateOrder = /* GraphQL */ `
   ) {
     updateOrder(input: $input, condition: $condition) {
       id
-      menuId
+      items {
+        menuId
+        customization {
+          category
+          name
+          price
+        }
+      }
       price
-      customization
       orderedTime
       status
       createdAt
@@ -90,9 +114,15 @@ export const deleteOrder = /* GraphQL */ `
   ) {
     deleteOrder(input: $input, condition: $condition) {
       id
-      menuId
+      items {
+        menuId
+        customization {
+          category
+          name
+          price
+        }
+      }
       price
-      customization
       orderedTime
       status
       createdAt

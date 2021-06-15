@@ -6,9 +6,13 @@ export const onCreateMenu = /* GraphQL */ `
     onCreateMenu {
       id
       name
-      price
-      customization
-      status
+      alternativeNames
+      basePrice
+      customization {
+        category
+        name
+        price
+      }
       createdAt
       updatedAt
     }
@@ -19,9 +23,13 @@ export const onUpdateMenu = /* GraphQL */ `
     onUpdateMenu {
       id
       name
-      price
-      customization
-      status
+      alternativeNames
+      basePrice
+      customization {
+        category
+        name
+        price
+      }
       createdAt
       updatedAt
     }
@@ -32,9 +40,13 @@ export const onDeleteMenu = /* GraphQL */ `
     onDeleteMenu {
       id
       name
-      price
-      customization
-      status
+      alternativeNames
+      basePrice
+      customization {
+        category
+        name
+        price
+      }
       createdAt
       updatedAt
     }
@@ -44,9 +56,15 @@ export const onCreateOrder = /* GraphQL */ `
   subscription OnCreateOrder {
     onCreateOrder {
       id
-      menuId
+      items {
+        menuId
+        customization {
+          category
+          name
+          price
+        }
+      }
       price
-      customization
       orderedTime
       status
       createdAt
@@ -58,9 +76,15 @@ export const onUpdateOrder = /* GraphQL */ `
   subscription OnUpdateOrder {
     onUpdateOrder {
       id
-      menuId
+      items {
+        menuId
+        customization {
+          category
+          name
+          price
+        }
+      }
       price
-      customization
       orderedTime
       status
       createdAt
@@ -72,9 +96,15 @@ export const onDeleteOrder = /* GraphQL */ `
   subscription OnDeleteOrder {
     onDeleteOrder {
       id
-      menuId
+      items {
+        menuId
+        customization {
+          category
+          name
+          price
+        }
+      }
       price
-      customization
       orderedTime
       status
       createdAt

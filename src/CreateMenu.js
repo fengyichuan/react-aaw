@@ -7,33 +7,50 @@ import * as mu from './graphql/mutations';
 class CreateMenu extends Component {
 
 state = {
-    "input" : {
-        "name" : "Another pizza",
-        "price" : 10,
-        "customization" : "",
-        "status": "IN_STOCK"
+    "menuInput" : {
+        "name" : "Another pizza with new schema",
+        "basePrice" : 10,
+        "alternativeNames" : ["Another", "Pizza", "Hallelujah pizza"],
+        "customization" : [
+            {
+                category: "Topping",
+                name: "Tomato",
+                price: 0.2
+            }, {
+                category: "Topping",
+                name: "Potato",
+                price: 0.3
+            }, {
+                 category: "Topping",
+                 name: "Green pepper",
+                 price: 0.4
+            }, {
+                  category: "Sauce",
+                  name: "Hot",
+                  price: 0.4
+            }, {
+                   category: "Sauce",
+                   name: "Peanut butter jelly",
+                   price: 0.4
+            }
+        ]
     }
-}
+};
 
 createMenu() {
     try {
-        console.log("Creating menu");
-        const menus = API.graphql({query: qu.listMenus});
-        console.log(menus);
-
-        API.graphql(graphqlOperation(mu.createMenu, {input: this.state.input}));
-
+        console.log("Creating menu with menuInput");
+        API.graphql(graphqlOperation(mu.createMenu, {input: this.state.menuInput}));
     } catch (err) {
         console.log('Error when creating a menu', err);
     }
 }
 
-  render() {
+    render() {
     return (
       <div>
-            This is where menu should be created
           <button onClick={() => this.createMenu()}>
-            Insert dummy pizza into dynamo
+                Create a dummy pizza menu
           </button>
       </div>
     );
