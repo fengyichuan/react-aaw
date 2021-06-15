@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
 import Amplify, {API, graphqlOperation} from 'aws-amplify';
 import {createMenu} from './graphql/mutations';
+import * as qu from './graphql/queries';
+import * as mu from './graphql/mutations';
 
 class CreateMenu extends Component {
 
-
 state = {
-    "name" : "",
-    "price" : 0,
-    "customization" : {},
-    "status": "IN_STOCK"
+    "input" : {
+        "name" : "Another pizza",
+        "price" : 10,
+        "customization" : "",
+        "status": "IN_STOCK"
+    }
 }
 
 createMenu() {
     try {
         console.log("Creating menu");
-        API.graphql(graphqlOperation(createMenu));
+        const menus = API.graphql({query: qu.listMenus});
+        console.log(menus);
+
+        API.graphql(graphqlOperation(mu.createMenu, {input: this.state.input}));
+
     } catch (err) {
-        console.log('error fetching menus');
+        console.log('Error when creating a menu', err);
     }
 }
 
   render() {
-    // This syntax ensures `this` is bound within handleClick
     return (
       <button onClick={() => this.createMenu()}>
         Click me
