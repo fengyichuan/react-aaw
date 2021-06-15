@@ -30,9 +30,12 @@ createMenu() {
 
   render() {
     return (
-      <button onClick={() => this.createMenu()}>
-        Click me
-      </button>
+      <div>
+            This is where menu should be created
+          <button onClick={() => this.createMenu()}>
+            Insert dummy pizza into dynamo
+          </button>
+      </div>
     );
   }
 }
