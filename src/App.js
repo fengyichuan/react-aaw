@@ -1,22 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
-import Amplify, {API, graphqlOperation} from 'aws-amplify';
-import {listMenus} from './graphql/queries';
-import CreateMenu from './CreateMenu'
-import PendingOrders from './PendingOrders'
+import { Navigation } from './Navigation';
+import React from 'react';
+import Routes from './Routes';
+import AppLayout from "@awsui/components-react/app-layout";
 import UploadMenuPage from './UploadMenuPage';
 
-import React, { Component } from 'react';
+function reducer(draft, action) {
+  switch (action.type) {
+    case 'SET_TOOLS_OPEN': {
+      draft.toolsOpen = action.payload;
+      return;
+    }
+    case 'SET_NAVIGATION_OPEN': {
+      draft.navigationOpen = action.payload;
+      return;
+    }
+    case 'SET_BREADCRUMB_ITEMS': {
+      draft.breadcrumbItems = action.payload;
+      return;
+    }
+  }
+}
 
 const initialState = {}
 
 function App() {
+
   return (
-    <div className="App">
-        <CreateMenu />
-        <PendingOrders />
-        <UploadMenuPage/>
-    </div>
+    <AppLayout
+    content={<UploadMenuPage />}
+    navigation={<Navigation />}
+  />
   );
 }
 
