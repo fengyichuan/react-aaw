@@ -8,9 +8,16 @@ class PendingOrders extends Component {
 
 async fetchOrders() {
     try {
+        const filterByNotCompleted = { filter: {
+                status : {
+                    ne: "COMPLETED"
+                }
+            }
+        }
         console.log("Fetching orders");
-        const orders = await API.graphql(graphqlOperation(qu.listOrders));
-        console.log("Order fetched" + orders);
+        const orders = await API.graphql(graphqlOperation(qu.listOrders, filterByNotCompleted));
+        console.log("Order fetched shown below");
+        console.log(orders);
     } catch (err) {
         console.log('error fetching menus');
     }

@@ -34,6 +34,15 @@ state = {
                    price: 0.4
             }
         ]
+    },
+    orderInput : {
+        items : [{
+            menuId: "menuId",
+            customization: []
+        }],
+        price: 10,
+        orderedTime : "time ordered",
+        status: "COMPLETED"
     }
 };
 
@@ -46,12 +55,24 @@ createMenu() {
     }
 }
 
+createOrder() {
+    try {
+        console.log("Creating order with orderInput");
+        API.graphql(graphqlOperation(mu.createOrder, {input: this.state.orderInput}));
+    } catch (err) {
+        console.log('Error when creating an order', err);
+    }
+}
+
     render() {
     return (
       <div>
           <button onClick={() => this.createMenu()}>
                 Create a dummy pizza menu
           </button>
+           <button onClick={() => this.createOrder()}>
+                Create a dummy order
+            </button>
       </div>
     );
   }
