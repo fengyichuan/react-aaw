@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Amplify, {API, graphqlOperation} from 'aws-amplify';
 import {listMenus} from './graphql/queries';
+import CreateMenu from './CreateMenu'
 
 import React, { Component } from 'react';
 
@@ -19,7 +20,7 @@ async function fetchMenus() {
 function App() {
   return (
     <div className="App">
-        Hello
+        <CreateMenu />
     </div>
   );
 }
