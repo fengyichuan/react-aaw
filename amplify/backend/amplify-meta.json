@@ -35,7 +35,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-reactaaw-aaw-152958-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apireactaaw"
       },
-      "lastPushTimeStamp": "2021-06-15T22:55:44.035Z",
+      "lastPushTimeStamp": "2021-06-16T15:16:50.284Z",
       "lastPushDirHash": "uatQFAox0WEBlRc6fwdVgGWoVTA="
     }
   }
