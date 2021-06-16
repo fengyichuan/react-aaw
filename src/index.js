@@ -1,22 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from 'react-router-dom';
-
 import './index.css';
 import App from './App';
-import PendingOrders from './PendingOrders';
-import CreateMenu from './CreateMenu';
 import reportWebVitals from './reportWebVitals';
 import Amplify from "aws-amplify";
 import awsExports from "./aws-exports";
-import { Navigation } from './Navigation';
-import UploadMenuPage from './UploadMenuPage';
-
 
 Amplify.configure(awsExports);
 

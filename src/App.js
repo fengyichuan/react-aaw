@@ -1,11 +1,10 @@
 import './App.css';
-import { Navigation } from './Navigation';
+import { Navigation } from './components/Navigation';
 import React from 'react';
-import Routes from './Routes';
 import AppLayout from "@awsui/components-react/app-layout";
 import UploadMenuPage from './UploadMenuPage';
 import CreateMenu from './CreateMenu';
-import PendingOrders from './PendingOrders';
+import PendingOrders from './components/PendingOrders';
 import {
     BrowserRouter as Router,
     Switch,
@@ -44,10 +43,10 @@ function App() {
   return (
     <Router>
             <div>
-                <div class="nav-bar">
+                <div className="nav-bar">
                     <Navigation />
                 </div>
-                <div class="main-panel">
+                <div className="main-panel">
                     <Switch>
                         <Route exact path="/"> <UploadMenuPage /> </Route>
                         <Route exact path="/viewPendingOrders"> <PendingOrders /> </Route>
