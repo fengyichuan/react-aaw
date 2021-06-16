@@ -3,7 +3,7 @@ import FormField from "@awsui/components-react/form-field";
 import Input from "@awsui/components-react/input";
 import ColumnLayout from "@awsui/components-react/column-layout";
 
-export class Demo extends Component {
+export class Customization extends Component {
 
   // editCustomizationCategory(count, value) {
   //   const copy = this.props.itemCustomizations;

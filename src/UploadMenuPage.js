@@ -8,7 +8,7 @@ import SpaceBetween from "@awsui/components-react/space-between";
 import Button from "@awsui/components-react/button";
 import "@awsui/global-styles/index.css";
 import React, { useState, useEffect } from 'react';
-import { Demo } from './Demo';
+import { Customization } from './Customization';
 import { Box } from "@awsui/components-react";
 import parse from 'html-react-parser';
 import * as mu from './graphql/mutations';
@@ -86,7 +86,7 @@ export default function UploadMenuPage() {
   const customizationChildren = [];
 
   for (var i = 1; i <= numOfCustomization; i += 1) {
-    customizationChildren.push(<Demo childCount={i} onCategoryChange={onCategoryChange} onNameChange={onNameChange} onPriceChange={onPriceChange} items={itemCustomizations} />);
+    customizationChildren.push(<Customization childCount={i} onCategoryChange={onCategoryChange} onNameChange={onNameChange} onPriceChange={onPriceChange} items={itemCustomizations} />);
   };
 
     function getConsolidatedCustomizations() {
@@ -106,7 +106,7 @@ export default function UploadMenuPage() {
           }
           header={
             <Header variant="h1" description="A Form to add items to menu for a specific restaurant">
-              Add Menu Items
+              Add Menu Items [working!]
             </Header>
           }
         >
