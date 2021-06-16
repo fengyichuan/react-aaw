@@ -3,6 +3,7 @@ import Amplify, {API, graphqlOperation} from 'aws-amplify';
 import {createMenu} from './graphql/mutations';
 import * as qu from './graphql/queries';
 import * as mu from './graphql/mutations';
+import Container from "@awsui/components-react/container";
 
 class CreateMenu extends Component {
 
@@ -67,12 +68,16 @@ createOrder() {
     render() {
     return (
       <div>
+        <Container>
           <button onClick={() => this.createMenu()}>
                 Create a dummy pizza menu
           </button>
+          </Container>
+          <Container>
            <button onClick={() => this.createOrder()}>
                 Create a dummy order
             </button>
+            </Container>
       </div>
     );
   }

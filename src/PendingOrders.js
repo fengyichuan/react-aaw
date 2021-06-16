@@ -3,6 +3,7 @@ import Amplify, {API, graphqlOperation} from 'aws-amplify';
 import * as qu from './graphql/queries';
 import * as mu from './graphql/mutations';
 import * as su from './graphql/subscriptions';
+import Container from "@awsui/components-react/container";
 
 class PendingOrders extends Component {
 
@@ -49,11 +50,12 @@ componentDidMount() {
  render() {
   return (
    <div>
-        This is reserved for showing pending orders.
-
+     <Container>
         <button onClick={() => this.fetchOrders()}>
-                    Log all the orders
-                  </button>
+          Log all the orders
+        </button>
+
+      </Container>
    </div>
   );
  }
