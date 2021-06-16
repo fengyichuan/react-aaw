@@ -5,26 +5,6 @@ import * as mu from './graphql/mutations';
 import * as su from './graphql/subscriptions';
 import Container from "@awsui/components-react/container";
 
-import { render } from "react-dom";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import Button from "@material-ui/core/Button";
-
-const styles = theme => ({
-  root: {
-    width: "100%",
-    overflowX: "auto"
-  },
-  table: {}
-});
-
 class PendingOrders extends Component {
 
 async fetchOrders() {
@@ -67,103 +47,14 @@ componentDidMount() {
     console.log("Subscribed on the order change event");
 }
 
-state = {
-    items: [
-      {
-        id: "id1",
-        menuId: "menuid1",
-        items: [],
-        price: 10,
-        customization: "custom",
-        orderedTime: "time",
-        status: "status"
-      },
-      {
-        id: "id2",
-        menuId: "menuid1",
-        items: [],
-        price: 10,
-        customization: "custom",
-        orderedTime: "time",
-        status: "status"
-      },
-      {
-        id: "id3",
-        menuId: "menuid1",
-        items: [],
-        price: 10,
-        customization: "custom",
-        orderedTime: "time",
-        status: "status"
-      }
-    ]
-  };
-
-  deleteItem(i) {
-    const { items } = this.state;
-    items.splice(i, 1);
-    this.setState({ items });
-  }
-
-  
-
  render() {
-  const classes = styles();
-  const filterByNotCompleted = { filter: {
-    status : {
-        ne: "COMPLETED"
-    }
-}
-}
-  const orders = API.graphql(graphqlOperation(qu.listOrders, filterByNotCompleted)).then((result) => {return result.data});
-  console.log("XINYUAN ORDER",orders);
-
   return (
    <div>
-    <Container>
-     <Paper className={classes.root}>
-        <Table className={classes.table}>
-          <TableHead>
-            <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Menu Id</TableCell>
-              <TableCell>Items</TableCell>
-              <TableCell>Price</TableCell>
-              <TableCell>Customization</TableCell>
-              <TableCell>Order Time</TableCell>
-              <TableCell>Status</TableCell>
-              <TableCell>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {this.state.items.map((item, i) => {
-              return (
-                <TableRow key={`row-${i}`}>
-                  <TableCell>{item.id}</TableCell>
-                  <TableCell>{item.menuId}</TableCell>
-                  <TableCell>{item.items}</TableCell>
-                  <TableCell>{item.price}</TableCell>
-                  <TableCell>{item.customization}</TableCell>
-                  <TableCell>{item.orderedTime}</TableCell>
-                  <TableCell>{item.status}</TableCell>
-                  <TableCell>
-                    <Button
-                      onClick={this.deleteItem.bind(this, i)}
-                      variant="contained" color="primary"
-                    >
-                      Complete Order
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </Paper>
-     
+     <Container>
         <button onClick={() => this.fetchOrders()}>
-          Log all the orders
+            Log all the orders
         </button>
+
 
       </Container>
    </div>

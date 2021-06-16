@@ -22,20 +22,7 @@ Amplify.configure(awsExports);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-        <div>
-            <div class="nav-bar">
-                <Navigation />
-            </div>
-            <div class="main-panel">
-                <Switch>
-                    <Route exact path="/"> <UploadMenuPage /> </Route>
-                    <Route exact path="/viewPendingOrder"> <PendingOrders /> </Route>
-                    <Route exact path="/createMenu"><UploadMenuPage /> </Route>
-                </Switch>
-            </div>
-        </div>
-    </Router>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

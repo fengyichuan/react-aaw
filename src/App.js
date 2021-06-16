@@ -6,6 +6,12 @@ import AppLayout from "@awsui/components-react/app-layout";
 import UploadMenuPage from './UploadMenuPage';
 import CreateMenu from './CreateMenu';
 import PendingOrders from './PendingOrders';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from 'react-router-dom';
 
 function reducer(draft, action) {
   switch (action.type) {
@@ -36,10 +42,20 @@ function App() {
   // />
   // );
   return (
-    <div>
-
-        <UploadMenuPage />
-    </div>
+    <Router>
+            <div>
+                <div class="nav-bar">
+                    <Navigation />
+                </div>
+                <div class="main-panel">
+                    <Switch>
+                        <Route exact path="/"> <UploadMenuPage /> </Route>
+                        <Route exact path="/viewPendingOrders"> <PendingOrders /> </Route>
+                        <Route exact path="/createMenu"><UploadMenuPage /> </Route>
+                    </Switch>
+                </div>
+            </div>
+    </Router>
 
   )
 }
