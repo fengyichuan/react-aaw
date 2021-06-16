@@ -11,6 +11,8 @@ import React, { useState, useEffect } from 'react';
 import { Demo } from './Demo';
 import { Box } from "@awsui/components-react";
 import parse from 'html-react-parser';
+import * as mu from './graphql/mutations';
+import { API, graphqlOperation } from 'aws-amplify';
 
 export default function UploadMenuPage() {
 
@@ -18,7 +20,7 @@ export default function UploadMenuPage() {
   const [itemName, setItemName] = useState('');
   const [itemPrice, setItemPrice] = useState('');
   const [itemAlternativeNames, setItemAlternativeNames] = useState();
-  const [itemCustomizations, setItemCustomizations] = useState([{name: "", category: "", price: 0}]);
+  const [itemCustomizations, setItemCustomizations] = useState([]);
   const [numOfCustomization, setNumberOfCustomization] = useState(0);
 
   useEffect(() => {
@@ -29,53 +31,63 @@ export default function UploadMenuPage() {
     console.log("itemCustomizations", itemCustomizations);
     console.log("inititalCounter", initialCount);
     console.log("numOfCustomization", numOfCustomization);
-  }, [itemName, itemPrice, itemAlternativeNames]);
+  }, [itemName, itemPrice, itemAlternativeNames, itemCustomizations]);
 
   function createMenuItem() {
     const menuItem = {
       name : itemName,
       basePrice : itemPrice,
       alternativeNames : itemAlternativeNames.split("\n"),
-      customization : [
-        {
-            category: "Topping",
-            name: "Tomato",
-            price: 0.2
-        }, {
-            category: "Topping",
-            name: "Potato",
-            price: 0.3
-        }, {
-              category: "Topping",
-              name: "Green pepper",
-              price: 0.4
-        }, {
-              category: "Sauce",
-              name: "Hot",
-              price: 0.4
-        }, {
-                category: "Sauce",
-                name: "Peanut butter jelly",
-                price: 0.4
-        }
-        ]
+      customization : [...itemCustomizations]
       }
-    
+    try {
+        API.graphql(graphqlOperation(mu.createMenu, {input: menuItem}));
+        console.log("Successfully added the menu item", menuItem);
+    } catch (err) {
+        console.log('Error when adding a menu item', err);
+    }
   }
   
   function handleCountIncrement(){
-    setItemCustomizations([{name: "name", category: "category", price: "10"}]);
     setNumberOfCustomization(prevCount => prevCount + 1);
+    setItemCustomizations(old => [...old, {name: "", category: "", price: 0}]);
+    console.log("NEW ITEM CUSTOM", itemCustomizations);
   }
 
   function handleCountDecrement(){
-    setNumberOfCustomization(prevCount => prevCount == 0 ? prevCount : prevCount - 1);
+    setNumberOfCustomization(prevCount => prevCount === 0 ? 0 : prevCount - 1);
+    setItemCustomizations(old => old.filter((_, i) => i !== old.length - 1));
+  }
+
+  function onCategoryChange(count, value) {
+    let oldList = [...itemCustomizations];
+    let oldItem = {...oldList[count - 1]};
+    oldItem.category = value;
+    oldList[count - 1] = oldItem;
+    setItemCustomizations(oldList);
+  }
+
+  function onNameChange(count, value) {
+    let oldList = [...itemCustomizations];
+    let oldItem = {...oldList[count - 1]};
+    oldItem.name = value;
+    oldList[count - 1] = oldItem;
+    setItemCustomizations(oldList);
+  }
+
+  function onPriceChange(count, value) {
+    let oldList = [...itemCustomizations];
+    let oldItem = {...oldList[count - 1]};
+    oldItem.price = value;
+    oldList[count - 1] = oldItem;
+    setItemCustomizations(oldList);
   }
 
   const customizationChildren = [];
-    for (var i = 1; i <= numOfCustomization; i += 1) {
-      customizationChildren.push(<Demo childCount={i} itemCustomizations={itemCustomizations}/>);
-    };
+
+  for (var i = 1; i <= numOfCustomization; i += 1) {
+    customizationChildren.push(<Demo childCount={i} onCategoryChange={onCategoryChange} onNameChange={onNameChange} onPriceChange={onPriceChange} items={itemCustomizations} />);
+  };
 
     function getConsolidatedCustomizations() {
       const result = parse(document.getElementById("customization-div").innerHTML);
@@ -89,7 +101,7 @@ export default function UploadMenuPage() {
           actions={
             <SpaceBetween direction="horizontal" size="xs">
               <Button variant="link">Cancel</Button>
-              <Button variant="primary">Submit</Button>
+              <Button variant="primary" onClick={() => createMenuItem()}>Submit</Button>
             </SpaceBetween>
           }
           header={

@@ -5,40 +5,26 @@ import ColumnLayout from "@awsui/components-react/column-layout";
 
 export class Demo extends Component {
 
-  editCustomizationCategory(count, value) {
-    const copy = this.props.itemCustomizations;
-    copy[count-1].category = value;
-    this.setState({itemCustomizations: copy});
-  }
-
-  constructor() {
-    super();
-    this.state = {
-      customizationName: '',
-      customizationCategory: '',
-      customizationPrice: 0,
-      itemCustomizations: [{name: "", category: "", price: 0}]
-    }
-  }
-
-  // editCustomizationCategory(value) {
-  //   this.setState({customizationCategory: value});
+  // editCustomizationCategory(count, value) {
+  //   const copy = this.props.itemCustomizations;
+  //   copy[count-1].category = value;
+  //   this.setState({itemCustomizations: copy});
   // }
 
-  editCustomizationName(value) {
-    this.setState({customizationName: value});
-  }
+  // // editCustomizationCategory(value) {
+  // //   this.setState({customizationCategory: value});
+  // // }
 
-  editCustomizationPrice(value) {
-    this.setState({customizationPrice: value});
-  }
+  // editCustomizationName(value) {
+  //   this.setState({customizationName: value});
+  // }
+
+  // editCustomizationPrice(value) {
+  //   this.setState({customizationPrice: value});
+  // }
 
   render() {  
-    console.log("Item Customization", this.props.itemCustomizations);
-    console.log("Customization State", this.state);
     console.log("Customization Props", this.props);
-    
-    //(oldValue => oldValue.append({name: "name", category: "category", price: "15"}));    
     return(
       <FormField
         stretch
@@ -50,19 +36,19 @@ export class Demo extends Component {
         
         <Input id={'category'+ this.props.childCount} 
         placeholder="Enter category.." 
-        onChange={(event) => this.editCustomizationCategory(this.props.childCount, event.detail.value)} 
-        value={this.state.itemCustomizations[this.props.childCount - 1].category}/>
+        onChange={(event) => this.props.onCategoryChange(this.props.childCount, event.detail.value)} 
+        value={this.props.items[this.props.childCount - 1].category}/>
         
         <Input id={'name'+ this.props.childCount} 
         placeholder="Enter name.." 
-        onChange={(event) => this.editCustomizationName(event.detail.value)} 
-        value={this.state.customizationName}/>
+        onChange={(event) => this.props.onNameChange(this.props.childCount, event.detail.value)} 
+        value={this.props.items[this.props.childCount - 1].name}/>
 
 
         <Input id={'price'+ this.props.childCount} 
         placeholder="Enter price.." 
-        onChange={(event) => this.editCustomizationPrice(event.detail.value)} 
-        value={this.state.customizationPrice}/>
+        onChange={(event) => this.props.onPriceChange(this.props.childCount, event.detail.value)} 
+        value={this.props.items[this.props.childCount - 1].price}/>
 
 
       </ColumnLayout>
