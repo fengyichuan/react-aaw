@@ -4,3 +4,7 @@ export const SIZE = [
   'large',
   'xlarge'
 ];
+
+export const BASE_BREADCRUMB_ITEMS = [
+  { text: 'Root', href: '/' }
+];

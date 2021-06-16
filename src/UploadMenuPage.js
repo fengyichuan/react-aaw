@@ -10,9 +10,12 @@ import "@awsui/global-styles/index.css";
 import React, { useState, useEffect } from 'react';
 import { Customization } from './Customization';
 import { Box } from "@awsui/components-react";
+import { Link } from "@awsui/components-react";
 import parse from 'html-react-parser';
 import * as mu from './graphql/mutations';
 import { API, graphqlOperation } from 'aws-amplify';
+import { AppDispatch } from './App';
+import { BASE_BREADCRUMB_ITEMS } from './constants';
 
 export default function UploadMenuPage() {
 
@@ -25,6 +28,7 @@ export default function UploadMenuPage() {
 
   useEffect(() => {
     //Logging the new values everytime you change some parameter.
+
     console.log("ItemName", itemName);
     console.log("ItemPrice", itemPrice);
     console.log("itemAlternativeNames", itemAlternativeNames);
