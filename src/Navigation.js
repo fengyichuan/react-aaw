@@ -5,7 +5,6 @@ import { SideNavigation } from '@awsui/components-react';
 export const navHeader = { text: 'Alexa As Waitress', href:'' };
 
 export const navItems = [
-  { type: 'link', text: 'Home', href: '/' },
   { type: 'link', text: 'Create Menu', href: '/createMenu' },
   { type: 'link', text: 'View Pending Orders', href: '/viewPendingOrders' }
 ];

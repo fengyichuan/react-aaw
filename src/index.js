@@ -15,6 +15,7 @@ import reportWebVitals from './reportWebVitals';
 import Amplify from "aws-amplify";
 import awsExports from "./aws-exports";
 import { Navigation } from './Navigation';
+import UploadMenuPage from './UploadMenuPage';
 
 
 Amplify.configure(awsExports);
@@ -28,9 +29,9 @@ ReactDOM.render(
             </div>
             <div class="main-panel">
                 <Switch>
-                    <Route exact path="/"> <App /> </Route>
+                    <Route exact path="/"> <UploadMenuPage /> </Route>
                     <Route exact path="/viewPendingOrder"> <PendingOrders /> </Route>
-                    <Route exact path="/createMenu"><CreateMenu /> </Route>
+                    <Route exact path="/createMenu"><UploadMenuPage /> </Route>
                 </Switch>
             </div>
         </div>
