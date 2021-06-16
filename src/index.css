@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav-bar {
+    float: left;
+    opacity: 0.9;
+    height: 100%;
+    text-transform: uppercase;
+    background-color: white;
+    padding: 1px 0px 0px 0px;
+    border-radius: 0 0 5px 0;
+}
+.main-panel {
+    float: left;
+}

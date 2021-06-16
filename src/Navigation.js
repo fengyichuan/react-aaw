@@ -2,12 +2,12 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { SideNavigation } from '@awsui/components-react';
 
-export const navHeader = { text: 'Alexa First UI ', href:'' };
+export const navHeader = { text: 'Alexa As Waitress', href:'' };
 
 export const navItems = [
-  { type: 'link', text: 'App', href: '/' },
-  { type: 'link', text: '[Mock] Insert Menu Item', href: '/mock/insertItem' },
-  { type: 'link', text: '[Mock] Pull Orders', href: '/mock/pullOrders' }
+  { type: 'link', text: 'Home', href: '/' },
+  { type: 'link', text: 'Create Menu', href: '/createMenu' },
+  { type: 'link', text: 'View Pending Orders', href: '/viewPendingOrders' }
 ];
 
 export const Navigation = () => {

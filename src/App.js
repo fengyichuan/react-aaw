@@ -37,8 +37,10 @@ function App() {
   // );
   return (
     <div>
-    <UploadMenuPage />
+
+        <UploadMenuPage />
     </div>
+
   )
 }
 
