@@ -7,11 +7,11 @@ import * as mu from './graphql/mutations';
 class CreateMenu extends Component {
 
 state = {
-    "menuInput" : {
-        "name" : "Another pizza with new schema",
-        "basePrice" : 10,
-        "alternativeNames" : ["Another", "Pizza", "Hallelujah pizza"],
-        "customization" : [
+    menuInput : {
+        name : "LOL pizza with new schema",
+        basePrice : 10,
+        alternativeNames : ["LOL", "Pizza", "Hallelujah pizza"],
+        customization : [
             {
                 category: "Topping",
                 name: "Tomato",

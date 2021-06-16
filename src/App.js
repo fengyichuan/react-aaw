@@ -4,6 +4,8 @@ import React from 'react';
 import Routes from './Routes';
 import AppLayout from "@awsui/components-react/app-layout";
 import UploadMenuPage from './UploadMenuPage';
+import CreateMenu from './CreateMenu';
+import PendingOrders from './PendingOrders';
 
 function reducer(draft, action) {
   switch (action.type) {
@@ -23,15 +25,23 @@ function reducer(draft, action) {
 }
 
 const initialState = {}
+const currentLocation = window.location.href;
 
 function App() {
 
+  // return (
+  //   <AppLayout
+  //   content={<UploadMenuPage />}
+  //   navigation={<Navigation />}
+  // />
+  // );
   return (
-    <AppLayout
-    content={<UploadMenuPage />}
-    navigation={<Navigation />}
-  />
-  );
+    <div>
+    <CreateMenu />
+    <PendingOrders />
+    <UploadMenuPage />
+    </div>
+  )
 }
 
 export default App;
